@@ -17,8 +17,8 @@ def PatternToNumber(Pattern: str) -> int:
     
     return Number
 
-Pattern: str = 'GT' 
+""" Pattern: str = 'GT' 
 print(PatternToNumber(Pattern)) # 11
 
 Pattern: str = 'ATGCAA' 
-print(PatternToNumber(Pattern)) # 912
+print(PatternToNumber(Pattern)) # 11 """
