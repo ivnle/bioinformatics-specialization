@@ -4,8 +4,13 @@ import FasterFrequentWords
 import FrequentWords
 import ReverseComplement
 import PatternMatching
+from ClumpFinding import ClumpFinding
 
 class Test(unittest.TestCase):
+    def test_ClumpFinding(self):
+        self.assertEqual(ClumpFinding('CGGACTCGACAGATGTGAAGAACGACAATGTGAAGACTCGACACGACAGAGTGAAGAGAAGAGGAAACATTGTAA',
+        5, 50, 4), ['CGACA', 'GAAGA'])
+    
     def test_PatternMatching(self):
         self.assertEqual(PatternMatching.PatternMatching('ATAT', 'GATATATGCATATACTT'), [1, 3, 9])
         self.assertEqual(PatternMatching.PatternMatching('ACAC', 'TTTTACACTTTTTTGTGTAAAAA'), [4])
