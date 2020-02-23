@@ -3,8 +3,17 @@ import NumberToPattern
 import FasterFrequentWords
 import FrequentWords
 import ReverseComplement
+import PatternMatching
 
 class Test(unittest.TestCase):
+    def test_PatternMatching(self):
+        self.assertEqual(PatternMatching.PatternMatching('ATAT', 'GATATATGCATATACTT'), [1, 3, 9])
+        self.assertEqual(PatternMatching.PatternMatching('ACAC', 'TTTTACACTTTTTTGTGTAAAAA'), [4])
+        self.assertEqual(PatternMatching.PatternMatching('AAA', 'AAAGAGTGTCTGATAGCAGCTTCTGAACTGGTTACCTGCCGTGAGTAAATTAAATTTTATTGACTTAGGTCACTAAATACTTTAACCAATATAGGCATAGCGCACAGACAGATAATAATTACAGAGTACACAACATCCAT')
+        , [0, 46, 51, 74])
+        self.assertEqual(PatternMatching.PatternMatching('TTT', 'AGCGTGCCGAAATATGCCGCCAGACCTGCTGCGGTGGCCTCGCCGACTTCACGGATGCCAAGTGCATAGAGGAAGCGAGCAAAGGTGGTTTCTTTCGCTTTATCCAGCGCGTTAACCACGTTCTGTGCCGACTTT')
+        , [88, 92, 98, 132])
+        self.assertEqual(PatternMatching.PatternMatching('ATA', 'ATATATA'), [0, 2, 4])
 
     def test_ReverseComplement(self):
         self.assertEqual(ReverseComplement.ReverseComplement('AAAACCCGGT'), 'ACCGGGTTTT')
