@@ -2,8 +2,20 @@ import unittest
 import NumberToPattern
 import FasterFrequentWords
 import FrequentWords
+import ReverseComplement
 
 class Test(unittest.TestCase):
+
+    def test_ReverseComplement(self):
+        self.assertEqual(ReverseComplement.ReverseComplement('AAAACCCGGT'), 'ACCGGGTTTT')
+        self.assertEqual(ReverseComplement.ReverseComplement('ACACAC'), 'GTGTGT')
+        self.assertEqual(ReverseComplement.ReverseComplement('AAAACCCGGT'.lower()), 'ACCGGGTTTT')
+        with self.assertRaises(ValueError):
+            ReverseComplement.ReverseComplement('BACGT')
+        with self.assertRaises(ValueError):
+            ReverseComplement.ReverseComplement('ACGTX') 
+        with self.assertRaises(ValueError):
+            ReverseComplement.ReverseComplement('ACYGT')                
 
     def test_NumberToPattern(self):
         self.assertEqual(NumberToPattern.NumberToPattern(0, 4), 'AAAA')
