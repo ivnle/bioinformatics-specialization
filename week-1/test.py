@@ -1,5 +1,4 @@
 import unittest
-import NumberToPattern
 import FasterFrequentWords
 import FrequentWords
 import ReverseComplement
@@ -8,8 +7,13 @@ from ClumpFinding import ClumpFinding
 from NaiveClumpFinding import NaiveClumpFinding
 from PatternToNumber import PatternToNumber
 from PatternToNumberRecursive import PatternToNumberRecursive
+from NumberToPatternRecursive import NumberToPatternRecursive
+from NumberToPattern import NumberToPattern
 
 class Test(unittest.TestCase):
+    def test_NumberToPatternRecursive(self):
+        self.assertEqual(NumberToPatternRecursive(5353, 7), 'CCATGGC')   
+        self.assertEqual(NumberToPatternRecursive(6421, 10), 'AAACGCACCC')   
 
     def test_PatternToNumberRecursive(self):
         self.assertEqual(PatternToNumberRecursive('TCTGAAGTGTAACGA'), 931327000)
@@ -63,10 +67,10 @@ class Test(unittest.TestCase):
             ReverseComplement.ReverseComplement('ACYGT')                
 
     def test_NumberToPattern(self):
-        self.assertEqual(NumberToPattern.NumberToPattern(0, 4), 'AAAA')
-        self.assertEqual(NumberToPattern.NumberToPattern(255, 4), 'TTTT')
+        self.assertEqual(NumberToPattern(0, 4), 'AAAA')
+        self.assertEqual(NumberToPattern(255, 4), 'TTTT')
         with self.assertRaises(ValueError):
-            NumberToPattern.NumberToPattern(256, 4)
+            NumberToPattern(256, 4)
 
     def test_FasterFrequentWords(self):
         self.assertEqual(set(FasterFrequentWords.FasterFrequentWords('ACGTTGCATGTCGCATGATGCATGAGAGCT', 4)), set(['CATG', 'GCAT']))
