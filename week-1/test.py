@@ -14,6 +14,10 @@ class Test(unittest.TestCase):
     def test_PatternToNumberRecursive(self):
         self.assertEqual(PatternToNumberRecursive('TCTGAAGTGTAACGA'), 931327000)
         self.assertEqual(PatternToNumberRecursive('CCATCATGAACGCATAA'), 5590489392)
+        with self.assertRaises(ValueError):
+            PatternToNumberRecursive('')
+        with self.assertRaises(ValueError):
+            PatternToNumberRecursive('ATBG')    
 
     def test_PatternToNumber(self):
         self.assertEqual(PatternToNumber('TCTGAAGTGTAACGA'), 931327000)

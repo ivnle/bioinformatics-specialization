@@ -2,6 +2,10 @@ import re
 from typing import Dict
 
 def PatternToNumberRecursive(Pattern: str) -> int:
+    
+    if not re.search(r"^[ATCG]+$", Pattern):
+        raise ValueError("Invalid DNA string.")
+    
     n: int = len(Pattern)
     if n == 1:
         map: Dict[str, int] = {
