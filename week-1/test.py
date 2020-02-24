@@ -7,8 +7,14 @@ import PatternMatching
 from ClumpFinding import ClumpFinding
 from NaiveClumpFinding import NaiveClumpFinding
 from PatternToNumber import PatternToNumber
+from PatternToNumberRecursive import PatternToNumberRecursive
 
 class Test(unittest.TestCase):
+
+    def test_PatternToNumberRecursive(self):
+        self.assertEqual(PatternToNumberRecursive('TCTGAAGTGTAACGA'), 931327000)
+        self.assertEqual(PatternToNumberRecursive('CCATCATGAACGCATAA'), 5590489392)
+
     def test_PatternToNumber(self):
         self.assertEqual(PatternToNumber('TCTGAAGTGTAACGA'), 931327000)
         self.assertEqual(PatternToNumber('CCATCATGAACGCATAA'), 5590489392)
