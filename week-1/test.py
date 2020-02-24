@@ -6,8 +6,13 @@ import ReverseComplement
 import PatternMatching
 from ClumpFinding import ClumpFinding
 from NaiveClumpFinding import NaiveClumpFinding
+from PatternToNumber import PatternToNumber
 
 class Test(unittest.TestCase):
+    def test_PatternToNumber(self):
+        self.assertEqual(PatternToNumber('TCTGAAGTGTAACGA'), 931327000)
+        self.assertEqual(PatternToNumber('CCATCATGAACGCATAA'), 5590489392)
+
     def test_ClumpFinding(self):
         self.assertEqual(ClumpFinding('CGGACTCGACAGATGTGAAGAACGACAATGTGAAGACTCGACACGACAGAGTGAAGAGAAGAGGAAACATTGTAA',
         5, 50, 4), ['CGACA', 'GAAGA'])

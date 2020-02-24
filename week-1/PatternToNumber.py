@@ -17,8 +17,3 @@ def PatternToNumber(Pattern: str) -> int:
     
     return Number
 
-""" Pattern: str = 'GT' 
-print(PatternToNumber(Pattern)) # 11
-
-Pattern: str = 'ATGCAA' 
-print(PatternToNumber(Pattern)) # 11 """
