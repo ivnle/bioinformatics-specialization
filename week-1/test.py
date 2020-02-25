@@ -10,8 +10,21 @@ from PatternToNumber import PatternToNumber
 from PatternToNumberRecursive import PatternToNumberRecursive
 from NumberToPatternRecursive import NumberToPatternRecursive
 from NumberToPattern import NumberToPattern
+from Skew import Skew
+from MinimumSkew import MinimumSkew
 
 class Test(unittest.TestCase):
+    def test_MinimumSkew(self):
+        self.assertEqual(MinimumSkew('TAAAGACTGCCGAGAGGCCAACACGAGTGCTAGAACGAGGGGCGTAAACGCGGGTCCGAT'), [11, 24])
+        self.assertEqual(MinimumSkew('ACCG'), [3])
+        self.assertEqual(MinimumSkew('ACCC'), [4])
+        self.assertEqual(MinimumSkew('CCGGGT'), [2])
+        self.assertEqual(MinimumSkew('CCGGCCGG'), [2, 6])
+
+    def test_Skew(self):
+        self.assertEqual(Skew('CATGGGCATCGGCCATACGCC'), [0, -1, -1, -1, 0, 1, 2, 1, 1, 1, 0, 1, 2, 1, 0, 0, 0, 0, -1, 0, -1, -2])
+        self.assertEqual(Skew('GAGCCACCGCGATA'), [0, 1, 1, 2, 1, 0, 0, -1, -2, -1, -2, -1, -1, -1, -1])
+
     def test_NumberToPatternRecursive(self):
         self.assertEqual(NumberToPatternRecursive(5353, 7), 'CCATGGC')   
         self.assertEqual(NumberToPatternRecursive(6421, 10), 'AAACGCACCC')   
