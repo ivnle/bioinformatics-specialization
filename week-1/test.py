@@ -12,8 +12,22 @@ from NumberToPatternRecursive import NumberToPatternRecursive
 from NumberToPattern import NumberToPattern
 from Skew import Skew
 from MinimumSkew import MinimumSkew
+from HammingDistance import HammingDistance
 
 class Test(unittest.TestCase):
+    def test_HammingDistance(self):
+        self.assertEqual(HammingDistance('GGGCCGTTGGT','GGACCGTTGAC'),3)
+        self.assertEqual(HammingDistance('AAAA','TTTT'),4)
+        self.assertEqual(HammingDistance('ACGTACGT','TACGTACG'),8)
+        self.assertEqual(HammingDistance('ACGTACGT','CCCCCCCC'),6)
+        self.assertEqual(HammingDistance('ACGTACGT','TGCATGCA'),8)
+        self.assertEqual(HammingDistance('GATAGCAGCTTCTGAACTGGTTACCTGCCGTGAGTAAATTAAAATTTTATTGACTTAGGTCACTAAATACT'
+                                        ,'AATAGCAGCTTCTCAACTGGTTACCTCGTATGAGTAAATTAGGTCATTATTGACTCAGGTCACTAACGTCT'
+                                        ),15)
+        self.assertEqual(HammingDistance('AGAAACAGACCGCTATGTTCAACGATTTGTTTTATCTCGTCACCGGGATATTGCGGCCACTCATCGGTCAGTTGATTACGCAGGGCGTAAATCGCCAGAATCAGGCTG'
+                                        ,'AGAAACCCACCGCTAAAAACAACGATTTGCGTAGTCAGGTCACCGGGATATTGCGGCCACTAAGGCCTTGGATGATTACGCAGAACGTATTGACCCAGAATCAGGCTC'
+                                        ),28)
+
     def test_MinimumSkew(self):
         self.assertEqual(MinimumSkew('TAAAGACTGCCGAGAGGCCAACACGAGTGCTAGAACGAGGGGCGTAAACGCGGGTCCGAT'), [11, 24])
         self.assertEqual(MinimumSkew('ACCG'), [3])
