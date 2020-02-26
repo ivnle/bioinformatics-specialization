@@ -16,8 +16,19 @@ from HammingDistance import HammingDistance
 from ApproximatePatternMatching import ApproximatePatternMatching
 from ApproximatePatternCount import ApproximatePatternCount
 from FrequentWordsWithMismatches import FrequentWordsWithMismatches
+from FrequentWordsWithMismatchesAndReverseComplements import FrequentWordsWithMismatchesAndReverseComplements
+from Neighbors import Neighbors
 
 class Test(unittest.TestCase):
+    def test_Neighbors(self):
+        self.assertEqual(set(Neighbors('ACG', 1)), set(['CCG', 'TCG', 'GCG', 'AAG', 'ATG', 'AGG', 'ACA', 'ACC', 'ACT', 'ACG']))
+
+    def test_FrequentWordsWithMismatchesAndReverseComplements(self):
+        self.assertEqual(FrequentWordsWithMismatchesAndReverseComplements('ACGTTGCATGTCGCATGATGCATGAGAGCT', 4, 1), ['ACAT', 'ATGT'])
+        self.assertEqual(FrequentWordsWithMismatchesAndReverseComplements('AAAAAAAAAA', 2, 1), ['AT', 'TA'])
+        self.assertEqual(FrequentWordsWithMismatchesAndReverseComplements('AGTCAGTC', 4, 2), ['AATT', 'GGCC'])
+        self.assertEqual(FrequentWordsWithMismatchesAndReverseComplements('AATTAATTGGTAGGTAGGTA', 4, 0), ['AATT'])
+
     def test_FrequentWordsWithMismatches(self):
         self.assertEqual(set(FrequentWordsWithMismatches('TAGCG', 2, 1)), set(['GG', 'TG']))
         self.assertEqual(set(FrequentWordsWithMismatches('AAT', 3, 0)), set(['AAT']))
