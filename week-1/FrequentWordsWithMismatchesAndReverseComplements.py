@@ -10,6 +10,7 @@ def FrequentWordsWithMismatchesAndReverseComplements(text: str, k: int, d: int):
         freq_array[i] = ApproximatePatternCount(text, NumberToPattern(i, k), d)
         freq_array[i] += ApproximatePatternCount(text, ReverseComplement(NumberToPattern(i, k)), d)
     max_freq = max(freq_array)
+
     return [NumberToPattern(j, k) for j, p in enumerate(freq_array) if p == max_freq]
     
 
