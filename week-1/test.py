@@ -13,8 +13,32 @@ from NumberToPattern import NumberToPattern
 from Skew import Skew
 from MinimumSkew import MinimumSkew
 from HammingDistance import HammingDistance
+from ApproximatePatternMatching import ApproximatePatternMatching
 
 class Test(unittest.TestCase):
+    def test_HammingDistance(self):
+        self.assertEqual(ApproximatePatternMatching('ATTCTGGA'
+                                                    ,'CGCCCGAATCCAGAACGCATTCCCATATTTCGGGACCACTGGCCTCCACGGTACGGACGTCAATCAAAT'
+                                                    , 3), [6, 7, 26, 27])
+        self.assertEqual(ApproximatePatternMatching('AAA'
+                                                    ,'TTTTTTAAATTTTAAATTTTTT'
+                                                    , 2), [4, 5, 6, 7, 8, 11, 12, 13, 14, 15])
+        self.assertEqual(ApproximatePatternMatching('GAGCGCTGG'
+                                                    ,'GAGCGCTGGGTTAACTCGCTACTTCCCGACGAGCGCTGTGGCGCAAATTGGCGATGAAACTGCAGAGAGAACTGGTCATCCAACTGAATTCTCCCCGCTATCGCATTTTGATGCGCGCCGCGTCGATT'
+                                                    , 2), [0, 30, 66])
+        self.assertEqual(ApproximatePatternMatching('AATCCTTTCA'
+                                                    ,'CCAAATCCCCTCATGGCATGCATTCCCGCAGTATTTAATCCTTTCATTCTGCATATAAGTAGTGAAGGTATAGAAACCCGTTCAAGCCCGCAGCGGTAAAACCGAGAACCATGATGAATGCACGGCGATTGCGCCATAATCCAAACA'
+                                                    , 3), [3, 36, 74, 137])
+        self.assertEqual(ApproximatePatternMatching('CCGTCATCC'
+                                                    ,'CCGTCATCCGTCATCCTCGCCACGTTGGCATGCATTCCGTCATCCCGTCAGGCATACTTCTGCATATAAGTACAAACATCCGTCATGTCAAAGGGAGCCCGCAGCGGTAAAACCGAGAACCATGATGAATGCACGGCGATTGC'
+                                                    , 3), [0, 7, 36, 44, 48, 72, 79, 112])
+        self.assertEqual(ApproximatePatternMatching('TTT'
+                                                    ,'AAAAAA'
+                                                    , 3), [0, 1, 2, 3])
+        self.assertEqual(ApproximatePatternMatching('CCA'
+                                                    ,'CCACCT'
+                                                    , 0), [0])                                                                                                                                                                                                                                                                                                                        
+    
     def test_HammingDistance(self):
         self.assertEqual(HammingDistance('GGGCCGTTGGT','GGACCGTTGAC'),3)
         self.assertEqual(HammingDistance('AAAA','TTTT'),4)
