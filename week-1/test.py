@@ -18,8 +18,14 @@ from ApproximatePatternCount import ApproximatePatternCount
 from FrequentWordsWithMismatches import FrequentWordsWithMismatches
 from FrequentWordsWithMismatchesAndReverseComplements import FrequentWordsWithMismatchesAndReverseComplements
 from Neighbors import Neighbors
+from MotifEnumeration import MotifEnumeration
 
 class Test(unittest.TestCase):
+    def test_MotifEnumeration(self):
+        self.assertEqual(MotifEnumeration(['ATTTGGC', 'TGCCTTA', 'CGGTATC', 'GAAAATT'], 3, 1), set(['ATA', 'ATT', 'GTT', 'TTT']))
+        self.assertEqual(MotifEnumeration(['ACGT', 'ACGT', 'ACGT'], 3, 0), set(['ACG', 'CGT']))
+        self.assertEqual(MotifEnumeration(['AAAAA', 'AAAAA', 'AAAAA'], 3, 1), set(['AAA', 'AAC', 'AAG', 'AAT', 'ACA', 'AGA', 'ATA', 'CAA', 'GAA', 'TAA']))
+
     def test_Neighbors(self):
         self.assertEqual(set(Neighbors('ACG', 1)), set(['CCG', 'TCG', 'GCG', 'AAG', 'ATG', 'AGG', 'ACA', 'ACC', 'ACT', 'ACG']))
 
